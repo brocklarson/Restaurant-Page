@@ -1,4 +1,5 @@
 import logo from './images/logo.png';
+import logo2 from './images/logo2.png';
 import backgroundImg from './images/bg.jpg';
 const main = document.getElementById('content');
 
@@ -47,6 +48,13 @@ const homepage = () => {
     background.src = backgroundImg;
     homepage.appendChild(background);
 
+    const logoContainer = document.createElement('div');
+    logoContainer.classList.add('homepage-logo');
+    const logoImg = new Image();
+    logoImg.src = logo2
+    homepage.appendChild(logoContainer);
+    logoContainer.appendChild(logoImg);
+
     const title = document.createElement('div');
     title.classList.add('homepage-title');
     title.innerText = "Tandoori Oven";
@@ -59,8 +67,6 @@ const homepage = () => {
 
     const subtitle = document.createElement('div');
     subtitle.classList.add('homepage-subtitle');
-    subtitle.style.width = "500px";
-    subtitle.style.height = "max-content";
     homepage.appendChild(subtitle);
 
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
