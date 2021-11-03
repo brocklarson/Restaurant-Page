@@ -1,6 +1,8 @@
 import logo from './images/logo.png';
 import logo2 from './images/logo2.png';
 import backgroundImg from './images/bg.jpg';
+import guyFieriImg from './images/guyfieri.jpg';
+import aboutUsBG from './images/aboutusBg.jpg';
 const main = document.getElementById('content');
 
 const navbar = () => {
@@ -17,6 +19,11 @@ const navbar = () => {
     const about = document.createElement('button');
     const menu = document.createElement('button');
     const contact = document.createElement('button');
+    home.classList.add('navbar-button');
+    about.classList.add('navbar-button');
+    menu.classList.add('navbar-button');
+    contact.classList.add('navbar-button');
+
     home.innerText = "Home";
     about.innerText = "About Us";
     menu.innerText = "Menu";
@@ -91,8 +98,40 @@ const homepage = () => {
     svg.appendChild(path);
     svg.appendChild(text);
     text.appendChild(textPath);
-
 }
 
+const aboutUs = () => {
+    const aboutUs = document.createElement('div');
+    aboutUs.classList.add('aboutUs-container');
+    main.appendChild(aboutUs);
 
-export { navbar, homepage };
+    const backgroundImg = new Image();
+    backgroundImg.classList.add('aboutUs-background')
+    backgroundImg.src = aboutUsBG;
+    aboutUs.appendChild(backgroundImg);
+
+    const imageContainer = document.createElement('div');
+    imageContainer.classList.add('aboutUs-image-container');
+    aboutUs.appendChild(imageContainer);
+
+    const guyFieri = new Image();
+    guyFieri.src = guyFieriImg
+    imageContainer.appendChild(guyFieri);
+
+    const aboutUsText = document.createElement('div');
+    aboutUsText.classList.add('aboutUs-text');
+    aboutUs.appendChild(aboutUsText);
+
+    const title = document.createElement('h1');
+    aboutUsText.appendChild(title);
+    title.innerText = "About Us"
+
+    const p = document.createElement('p');
+    aboutUsText.appendChild(p);
+    p.innerText = "Whether you're craving the classic, richly spiced chicken tikka masala or seeking more exotic flavors with our bold and aromatic lamb vindaloo, Tandoori Oven welcomes you to enjoy our selection of recipes that have been perfected to indulge and thrill your senses with flavors and aroma.\n\n" +
+        "Our menu of exotic spices and luscious sauces grabbed the attention of traveling Food Network guru Guy Fieri to be featured on Diners, Drive-Ins, and Dives. We offer a wide array of chicken, lamb, seafood, vegetarian and vegan options of our delicately spiced curries and masalas along with the rustic grilled flavors from our clay tandoor oven. \n\n" +
+        "Since opening our first location in the heart of Cache Valley in 2004, Tandoori Oven quickly became a local favorite offering a warm and inviting atmosphere for family dinners, lunch with co-workers, or a romantic evening with that special someone. In July 2013, by consistently offering fresh, high-quality Indian cuisine, we opened a second location, enchanting the palate of Idaho Falls, ID.\n\n" +
+        "We’re grateful and honored to be known as one of the best dining experiences with our award-winning cuisine. We humbly invite you to experience your own passport-free culinary cultural journey of subtle tastes that meld into intensely rich and vibrant flavors with each bite of our traditional Indian cuisine."
+}
+
+export { navbar, homepage, aboutUs };
