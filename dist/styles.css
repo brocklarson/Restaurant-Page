@@ -8,15 +8,17 @@
 /* NAVBAR */
 
 .navbar {
+    position: relative;
     align-items: center;
     display: flex;
     justify-content: center;
     padding: 16px;
     width: 100vw;
     z-index: 1;
+    height: 104px;
 }
 
-.navbar button {
+.navbar-button {
     background: none;
     border: solid 1px transparent;
     color: white;
@@ -31,27 +33,62 @@
     z-index: inherit;
 }
 
-.navbar button:hover,
-.navbar button:focus {
+.navbar-button:hover,
+.navbar-button:focus {
     border: solid 1px #F7941D;
     color: #F7941D;
+}
+
+.order-button {
+    background: linear-gradient(to right, black 50%, #F7941D 50%) right bottom/200% 100%;
+    border-radius: 100px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 16px;
+    height: max-content;
+    letter-spacing: 0.05em;
+    margin-right: 32px;
+    padding: 4px 8px;
+    position: absolute;
+    right: 0;
+    text-shadow: 0.5px 0.5px black;
+    text-transform: uppercase;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s linear;
+    width: max-content;
+    z-index: inherit;
+}
+
+.order-button:hover {
+    background-position: left bottom;
+}
+
+.order-button a {
+    color: inherit;
+    height: 100%;
+    padding: 4px 8px;
+    text-decoration: none;
+    width: 100%;
 }
 
 .logo-container {
     border: none;
     height: auto;
+    left: 0;
     margin-left: 32px;
     max-width: 60px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: inherit;
 }
 
 .logo-container img {
     height: auto;
     max-width: 100%;
-}
-
-.filler-div {
-    flex-grow: 1;
 }
 
 
@@ -102,7 +139,7 @@
 
 .stars {
     animation: 1.5s ease-in 4s forwards fadein, 1s linear 2.5s forwards grow;
-    color: gold;
+    color: #F7941D;
     font-size: 80px;
     margin: 0 0 -10px 0;
     opacity: 0;
@@ -236,4 +273,44 @@ text {
     color: #F7941D;
     font-size: 20px;
     text-shadow: 0.5px 0.5px grey;
+}
+
+
+/* MENU */
+
+.menu-container {
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.menu-upper {
+    align-items: center;
+    display: flex;
+    height: max-content;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.menu-title {
+    color: white;
+    font-family: sans-serif;
+    font-size: 55px;
+    font-weight: 600;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-lower {
+    background: blue;
+    width: 100%;
+    height: max-content;
 }

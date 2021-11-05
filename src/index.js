@@ -1,8 +1,9 @@
-import { navbar, homepage, aboutUs } from './page-setup.js';
+import { navbar, homepage, aboutUs, menu } from './page-setup.js';
 
 const load = (() => {
     navbar();
-    homepage();
+    // homepage();
+    menu();
     const main = document.getElementById('content');
     const navbarButtons = document.querySelectorAll('.navbar-button');
 
@@ -16,6 +17,7 @@ const load = (() => {
 
         if (buttonID === "Home") homepage();
         else if (buttonID === "About Us") aboutUs();
+        else if (buttonID === "Menu") menu();
         else homepage();
     }
 

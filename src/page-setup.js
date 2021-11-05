@@ -3,6 +3,8 @@ import logo2 from './images/logo2.png';
 import backgroundImg from './images/bg.jpg';
 import guyFieriImg from './images/guyfieri.jpg';
 import aboutUsBG from './images/aboutusBg.jpg';
+import menuBG from './images/menuBg.jpg';
+import menuArr from './menu.js';
 const main = document.getElementById('content');
 
 const navbar = () => {
@@ -23,26 +25,26 @@ const navbar = () => {
     about.classList.add('navbar-button');
     menu.classList.add('navbar-button');
     contact.classList.add('navbar-button');
-
     home.innerText = "Home";
     about.innerText = "About Us";
     menu.innerText = "Menu";
     contact.innerText = "Contact";
 
-    const fillerDiv1 = document.createElement('div');
-    const fillerDiv2 = document.createElement('div');
-    fillerDiv1.classList.add('filler-div');
-    fillerDiv2.classList.add('filler-div');
+    const order = document.createElement('button');
+    order.classList.add('order-button');
+    const a = document.createElement('a');
+    a.innerText = "Order Online";
+    a.href = "https://repasorder.com/home/3e8fc69d-8021-42b1-a8fd-98e0cdfc557b";
 
     main.appendChild(navbar);
     navbar.appendChild(logoContainer);
     logoContainer.appendChild(logoImg);
-    navbar.appendChild(fillerDiv1);
     navbar.appendChild(home);
     navbar.appendChild(about);
     navbar.appendChild(menu);
     navbar.appendChild(contact);
-    navbar.appendChild(fillerDiv2);
+    navbar.appendChild(order);
+    order.appendChild(a);
 }
 
 const homepage = () => {
@@ -92,7 +94,7 @@ const homepage = () => {
     const textPath = document.createElementNS("http://www.w3.org/2000/svg", 'textPath');
     textPath.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "#curve");
     textPath.setAttribute("startOffset", "50%");
-    textPath.textContent = "Authentic Indian Cuisine";
+    textPath.textContent = "Finest Indian Cuisine";
 
     subtitle.appendChild(svg);
     svg.appendChild(path);
@@ -134,4 +136,55 @@ const aboutUs = () => {
         "We’re grateful and honored to be known as one of the best dining experiences with our award-winning cuisine. We humbly invite you to experience your own passport-free culinary cultural journey of subtle tastes that meld into intensely rich and vibrant flavors with each bite of our traditional Indian cuisine."
 }
 
-export { navbar, homepage, aboutUs };
+const menu = () => {
+    const menuPage = document.createElement('div');
+    menuPage.classList.add('menu-container');
+    main.appendChild(menuPage);
+
+    const menuUpper = document.createElement('div');
+    menuUpper.classList.add('menu-upper');
+
+    const backgroundImg = new Image();
+    backgroundImg.classList.add('menu-background')
+    backgroundImg.src = menuBG;
+
+    const title = document.createElement('h1');
+    title.classList.add('menu-title');
+    title.innerText = "Our Menu";
+
+    const menuLower = document.createElement('div');
+    menuLower.classList.add('menu-lower');
+
+    //Menu Card
+    const menuCard = document.createElement('div');
+    menuCard.classList.add('menu-card');
+
+    const cardTitle = document.createElement('div');
+    cardTitle.classList.add('card-title');
+
+    const name = document.createElement('p');
+    name.classList.add('card-name');
+    const price = document.createElement('p');
+    price.classList.add('card-price');
+
+    const cardDetails = document.createElement('div');
+    cardDetails.classList.add('card-details');
+    const description = document.createElement('p');
+
+    description.classList.add('card-description');
+    menuCard.appendChild(cardTitle);
+    cardTitle.appendChild(name);
+    cardTitle.appendChild(price);
+    menuCard.appendChild(cardDetails);
+    cardDetails.appendChild(description);
+    //  
+
+    menuPage.appendChild(menuUpper);
+    menuUpper.appendChild(backgroundImg);
+    menuUpper.appendChild(title);
+    menuPage.appendChild(menuLower);
+
+    console.log(menuArr);
+}
+
+export { navbar, homepage, aboutUs, menu };
