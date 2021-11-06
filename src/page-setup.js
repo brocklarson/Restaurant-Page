@@ -78,6 +78,7 @@ const homepage = () => {
     subtitle.classList.add('homepage-subtitle');
     homepage.appendChild(subtitle);
 
+    //svg path allows for curved text
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute('width', '500');
     svg.setAttribute('height', 'max-content');
@@ -156,35 +157,54 @@ const menu = () => {
     menuLower.classList.add('menu-lower');
 
     //Menu Card
-    const menuCard = document.createElement('div');
-    menuCard.classList.add('menu-card');
+    const menuCategories = [...new Set(menuArr.map(item => item.category))];
+    menuCategories.forEach(category => {
+        createCategory(category);
+        menuArr.filter(item => {
+            if (item.category === category) createCards(item);
+        });
+    });
 
-    const cardTitle = document.createElement('div');
-    cardTitle.classList.add('card-title');
+    function createCategory(itemCategory) {
+        const category = document.createElement('h1');
+        category.classList.add('menu-category');
+        menuLower.appendChild(category);
+        category.innerText = itemCategory;
+    }
 
-    const name = document.createElement('p');
-    name.classList.add('card-name');
-    const price = document.createElement('p');
-    price.classList.add('card-price');
+    function createCards(item) {
+        const menuCard = document.createElement('div');
+        menuCard.classList.add('menu-card');
 
-    const cardDetails = document.createElement('div');
-    cardDetails.classList.add('card-details');
-    const description = document.createElement('p');
+        const cardTitle = document.createElement('div');
+        cardTitle.classList.add('card-title');
 
-    description.classList.add('card-description');
-    menuCard.appendChild(cardTitle);
-    cardTitle.appendChild(name);
-    cardTitle.appendChild(price);
-    menuCard.appendChild(cardDetails);
-    cardDetails.appendChild(description);
-    //  
+        const name = document.createElement('p');
+        name.classList.add('card-name');
+        const price = document.createElement('p');
+        price.classList.add('card-price');
+
+        const cardDetails = document.createElement('div');
+        cardDetails.classList.add('card-details');
+        const description = document.createElement('p');
+        description.classList.add('card-description');
+
+        menuLower.appendChild(menuCard);
+        menuCard.appendChild(cardTitle);
+        cardTitle.appendChild(name);
+        cardTitle.appendChild(price);
+        menuCard.appendChild(cardDetails);
+        cardDetails.appendChild(description);
+
+        name.innerText = item.name;
+        price.innerText = `$${item.price}`;
+        description.innerText = item.description;
+    }
 
     menuPage.appendChild(menuUpper);
     menuUpper.appendChild(backgroundImg);
     menuUpper.appendChild(title);
     menuPage.appendChild(menuLower);
-
-    console.log(menuArr);
 }
 
 export { navbar, homepage, aboutUs, menu };
