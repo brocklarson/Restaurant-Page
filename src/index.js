@@ -9,27 +9,27 @@ const load = (() => {
         navbarButtons[i].addEventListener('click', changePage);
     }
 
+    window.onscroll = () => {
+        if (window.scrollY > 100) {
+            header.classList.add('navbar-black');
+        } else {
+            header.classList.remove('navbar-black');
+        }
+    };
+
     function init() {
         navbar();
         homepage();
-
-        window.onscroll = () => {
-            if (window.scrollY > 100) {
-                header.classList.add('navbar-black');
-            } else {
-                header.classList.remove('navbar-black');
-            }
-        };
     }
 
     function changePage(event) {
         const buttonID = event.target.textContent;
         clearPage();
 
-        if (buttonID === "Home") homepage();
-        else if (buttonID === "About Us") aboutUs();
-        else if (buttonID === "Menu") menu();
-        else if (buttonID === "Contact") contact();
+        if (buttonID === 'Home') homepage();
+        else if (buttonID === 'About Us') aboutUs();
+        else if (buttonID === 'Menu') menu();
+        else if (buttonID === 'Contact') contact();
         else homepage();
     }
 
@@ -37,7 +37,7 @@ const load = (() => {
         const main = document.getElementById('content');
         const children = main.children;
         Array.from(children).forEach(child => {
-            if (child.className !== "navbar") main.removeChild(child)
+            if (child.className !== 'navbar' && child.className !== 'navbar-black') main.removeChild(child)
         });
     }
 
