@@ -207,4 +207,39 @@ const menu = () => {
     menuPage.appendChild(menuLower);
 }
 
-export { navbar, homepage, aboutUs, menu };
+const contact = () => {
+    const contactUs = document.createElement('div');
+    contactUs.classList.add('contactUs-container');
+    main.appendChild(contactUs);
+
+    const subContainer = document.createElement('div');
+    subContainer.classList.add('contactUs-subContainer');
+    contactUs.appendChild(subContainer);
+
+    const title = document.createElement('h1');
+    title.classList.add('contactUs-title');
+    title.innerText = "Contact Us";
+    subContainer.appendChild(title);
+
+    const info = document.createElement('div');
+    info.classList.add('contactUs-info');
+    subContainer.appendChild(info);
+
+    const map = document.createElement('div');
+    map.classList.add('contactUs-map');
+    subContainer.appendChild(map);
+
+    const p = document.createElement('p');
+    p.innerHTML = '<span class="material-icons-outlined">email</span> manager@tandooriovenlogan.com<br>' +
+        '<span class="material-icons-outlined">phone</span> (435)750-6836<br><br>' +
+        '720 East 1000 North<br>' +
+        'Logan, UT 84321';
+    info.appendChild(p);
+
+    const mapScreen = document.createElement('iframe');
+    mapScreen.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2976.64551864111!2d-111.81819818431762!3d41.74973828141567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87547dd14da38a23%3A0xc85d2133a5344fdb!2sTandoori%20Oven!5e0!3m2!1sen!2sus!4v1636334695273!5m2!1sen!2sus";
+    map.appendChild(mapScreen);
+
+}
+
+export { navbar, homepage, aboutUs, menu, contact };
