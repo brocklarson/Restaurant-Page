@@ -1,22 +1,25 @@
 import { navbar, homepage, aboutUs, menu, contact } from './page-setup.js';
 
 const load = (() => {
-    navbar();
-    homepage();
-    const main = document.getElementById('content');
+    init();
     const navbarButtons = document.querySelectorAll('.navbar-button');
     const header = document.querySelector('.navbar');
 
-    window.onscroll = () => {
-        if (window.scrollY > 100) {
-            header.classList.add('navbar-black');
-        } else {
-            header.classList.remove('navbar-black');
-        }
-    };
-
     for (let i = 0; i < navbarButtons.length; i++) {
         navbarButtons[i].addEventListener('click', changePage);
+    }
+
+    function init() {
+        navbar();
+        homepage();
+
+        window.onscroll = () => {
+            if (window.scrollY > 100) {
+                header.classList.add('navbar-black');
+            } else {
+                header.classList.remove('navbar-black');
+            }
+        };
     }
 
     function changePage(event) {
@@ -31,6 +34,7 @@ const load = (() => {
     }
 
     function clearPage() {
+        const main = document.getElementById('content');
         const children = main.children;
         Array.from(children).forEach(child => {
             if (child.className !== "navbar") main.removeChild(child)
