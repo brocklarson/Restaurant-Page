@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Raleway:wght@400;700&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,15 +9,15 @@
 /* NAVBAR */
 
 .navbar {
-    position: fixed;
     align-items: center;
     display: flex;
+    height: 104px;
     justify-content: center;
     padding: 16px;
+    position: fixed;
+    transition: 0.3s ease-in-out;
     width: 100vw;
     z-index: 1;
-    height: 104px;
-    transition: 0.3s ease-in-out;
 }
 
 .navbar-black {
@@ -29,7 +30,7 @@
     border: solid 1px transparent;
     color: white;
     cursor: pointer;
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 16px;
     letter-spacing: 0.05em;
     margin: 0 16px;
@@ -51,7 +52,7 @@
     border: none;
     color: white;
     cursor: pointer;
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 16px;
     height: max-content;
     letter-spacing: 0.05em;
@@ -59,7 +60,7 @@
     padding: 4px 8px;
     position: absolute;
     right: 0;
-    text-shadow: 0.5px 0.5px black;
+    text-shadow: 1px 1px black;
     text-transform: uppercase;
     top: 50%;
     transform: translateY(-50%);
@@ -132,7 +133,7 @@
     border-bottom: solid 3px white;
     border-top: solid 3px white;
     color: white;
-    font-family: serif;
+    font-family: 'Merriweather', serif;
     font-size: 55px;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -170,7 +171,7 @@ path {
 
 text {
     fill: white;
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 27px;
     letter-spacing: 0.1em;
     text-anchor: middle;
@@ -246,11 +247,12 @@ text {
     height: calc(100vh - 130px);
     justify-content: center;
     object-fit: contain;
-    padding: 8px;
+    padding: 16px;
     width: 50%;
 }
 
 .aboutUs-image-container img {
+    border: solid 1px black;
     height: auto;
     margin: 0;
     max-width: 100%;
@@ -261,6 +263,7 @@ text {
     align-items: center;
     display: flex;
     flex-direction: column;
+    font-family: 'Raleway', sans-serif;
     height: calc(100vh - 130px);
     justify-content: center;
     padding: 0 16px;
@@ -270,6 +273,7 @@ text {
 .aboutUs-text h1 {
     align-self: flex-start;
     color: #f5f5f5;
+    font-weight: 700;
     padding: 0 0 32px 0;
     text-transform: uppercase;
 }
@@ -303,9 +307,9 @@ text {
 
 .menu-title {
     color: white;
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 55px;
-    font-weight: 600;
+    font-weight: 700;
     left: 50%;
     position: absolute;
     top: 50%;
@@ -323,17 +327,17 @@ text {
 }
 
 .menu-category {
-    grid-column: auto / span 3;
-    margin: 48px 0 32px 0;
-    font-family: sans-serif;
-    letter-spacing: 0.05em;
+    font-family: 'Raleway', sans-serif;
     font-size: 32px;
+    grid-column: auto / span 3;
+    letter-spacing: 0.05em;
+    margin: 48px 0 32px 0;
 }
 
 .menu-card {
     display: flex;
     flex-direction: column;
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
     height: max-content;
     overflow: hidden;
     width: 360px;
@@ -344,8 +348,8 @@ text {
     display: flex;
     height: 50px;
     justify-content: space-between;
-    width: 100%;
     text-transform: uppercase;
+    width: 100%;
 }
 
 .card-name {
@@ -371,47 +375,47 @@ text {
 /* CONTACT US */
 
 .contactUs-container {
+    background-color: black;
     bottom: 0;
     left: 0;
     position: absolute;
     right: 0;
     top: 0;
-    background-color: black;
 }
 
 .contactUs-subContainer {
-    position: absolute;
-    top: 104px;
-    left: 0;
-    right: 0;
-    bottom: 0;
     background-color: white;
+    bottom: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: max-content 1fr;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 104px;
 }
 
 .contactUs-title {
-    margin: 48px 0px;
-    grid-column: auto / span 2;
-    text-align: center;
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 42px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
+    font-weight: 700;
+    grid-column: auto / span 2;
+    margin: 48px 0px;
+    text-align: center;
     text-transform: uppercase;
 }
 
 .contactUs-info {
+    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 .contactUs-info p {
-    line-height: 35px;
+    font-family: 'Raleway', sans-serif;
     font-size: 20px;
+    line-height: 35px;
     margin-top: -10%;
 }
 
@@ -420,14 +424,14 @@ text {
 }
 
 .contactUs-map {
-    padding: 48px;
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding: 48px;
 }
 
 .contactUs-map iframe {
-    width: 100%;
-    height: 100%;
     border: solid 1px black;
+    height: 100%;
+    width: 100%;
 }
