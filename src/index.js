@@ -37,7 +37,7 @@ const load = (() => {
         const main = document.getElementById('content');
         const children = main.children;
         Array.from(children).forEach(child => {
-            if (child.className !== 'navbar' && child.className !== 'navbar-black') main.removeChild(child)
+            if (!child.className.includes('navbar')) main.removeChild(child)
         });
     }
 
